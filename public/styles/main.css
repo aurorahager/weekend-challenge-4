@@ -3,8 +3,14 @@ h1 {
 }
 
 p {
-    border: 1px solid blue;
+    border: 1px solid lightgray;
     height: 350px;
     font-size: 25px;
     text-align: center;
+}
+
+span {
+    font-size: 20px;
+    text-decoration: bold;
+    color: lightblue;
 }
