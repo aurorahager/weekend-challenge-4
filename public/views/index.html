@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +12,98 @@
     <script src="../scripts/client.js"></script>
     <title>Gallery</title>
 </head>
+
 <body ng-app="myApp">
-    <div class="container jumbotron" ng-controller="GalleryController as GC">
-        gallery assignment
+    <!-- header -->
+    <h1 class="jumbotron">Rory's Photo Gallery</h1>
+    <!-- gallery container -->
+    <section class="container" ng-controller="GalleryController as GC">
+        <!-- row one -->
+        <div class="row">
+            <!-- column 1 -->
+            <div class="col-md-4">
+                <!-- div to togle click -->
+                <div id="gal1" ng-init="getDesc = false" ng-click="getDesc1 = !getDesc1">
+                    <!-- image hiding on div click -->
+                    <img ng-src="../gallery/gal1.jpg" class="img-responsive img-thumbnail" ALT="Caleb and I" ng-hide="getDesc1">
+                    <!-- description showing on div click -->
+                    <p ng-show="getDesc1">
+                        This is a photo of my boyfriend, Caleb, and I at a wedding last summer
+                    </p>
+                </div> <!--end div to click-->
+                <button class="btn btn-primary btn-block" ng-click="GC.favPhoto()">Favorite!</button>
+            </div> <!--end column-->
+            <!-- column 2 -->
+            <div class="col-md-4">
+                <!-- div to togle click -->
+                <div id=gal2 ng-init="getDesc2 = false" ng-click="getDesc2 = !getDesc2">
+                    <!-- image hiding on div click -->
+                    <img ng-src="../gallery/gal2.jpg" class="img-responsive img-thumbnail" ALT="Holly and I" ng-hide="getDesc2">
+                    <!-- description showing on div click -->
+                    <p ng-show="getDesc2">
+                        This is me and my best friend Holly in highschool
+                    </p>
+                </div> <!--end div to click-->
+                <button class="btn btn-primary btn-block">Favorite!</button>
+            </div> <!--end column-->
+            <!-- column 3 -->
+            <div class="col-md-4"> 
+                <!-- div to togle click -->
+                <div id=gal3 ng-init="getDesc3 = false" ng-click="getDesc3 = !getDesc3">
+                    <!-- image hiding on div click -->
+                <img ng-src="../gallery/gal3.jpg" class="img-responsive img-thumbnail" ALT="My sister, Ellie" ng-hide="getDesc3">
+                <!-- description showing on div click -->
+                <p ng-show="getDesc3">
+                    This is a picture of my little sister Ellie a few years back
+                </p>
+                </div> <!--end div to click-->
+                <button class="btn btn-primary btn-block">Favorite!</button>
+            </div> <!--end column-->
         </div>
+        <!-- end row -->
+        <!-- row 2 -->
+        <div class="row">
+            <!-- column 1 -->
+            <div class="col-md-4">
+                <!-- div to togle click -->
+                 <div id=gal4 ng-init="getDesc4 = false" ng-click="getDesc4 = !getDesc4">
+                    <!-- image hiding on div click -->
+                <img ng-src="../gallery/gal4.jpg" class="img-responsive img-thumbnail" ALT="My Mom and Step-Dad" ng-hide="getDesc4">
+                <!-- description showing on div click -->
+                <p ng-show="getDesc4">
+                    This is a photo of my Mom and mt Step Dad, Ben
+                </p>
+                </div><!--end div to click-->
+                <button class="btn btn-primary btn-block">Favorite!</button>
+            </div><!--end column-->
+            <!-- column 2 -->
+            <div class="col-md-4">
+                <!-- div to togle click -->
+                 <div id=gal5 ng-init="getDesc5 = false" ng-click="getDesc5 = !getDesc5">
+                    <!-- image hiding on div click -->
+                <img ng-src="../gallery/gal5.jpg" class="img-responsive img-thumbnail" ALT="Talia and I" ng-hide="getDesc5">
+                <!-- description showing on div click -->
+                <p ng-show="getDesc5">
+                    This is a photo of me and one of my other best friends Talia at her sorority's semi-formal
+                </p>
+                </div><!--end div to click-->
+                <button class="btn btn-primary btn-block">Favorite!</button>
+            </div><!--end column-->
+            <!-- column 3 -->
+            <div class="col-md-4">
+                <!-- div to togle click -->
+            <div id=gal56 ng-init="getDesc6 = false" ng-click="getDesc6 = !getDesc6">
+                <!-- image hiding on div click -->
+                <img ng-src="../gallery/gal6.jpg" class="img-responsive img-thumbnail" ALT="Me and my cat, Oliver" ng-hide="getDesc6">
+                <!-- description showing on div click -->
+                <p ng-show="getDesc6">
+                    This is a picture of me and my cat Oliver. I have had him since I was 5.
+                </p>
+                </div><!--end div to click-->
+                <button class="btn btn-primary btn-block">Favorite!</button>
+            </div> <!--end column-->
+        </div> <!-- end row -->
+    </section>
 </body>
+
 </html>
