@@ -8,7 +8,7 @@ var photos = [{
     url: '../gallery/gal1.jpg',
     desc: 'This is a photo of my boyfriend, Caleb, and I at a wedding last summer',
     clicks: 0,
-    comments:[]
+    comments:['wow great pic!']
 }, {
     number: 2,
     url: '../gallery/gal2.jpg',
@@ -49,6 +49,11 @@ router.post('/', function (req, res){
     photos = req.body;
     res.sendStatus(202);
 
+})//END router.post
+
+router.put('/:id', function (req, res){
+    photos = req.body;
+   res.sendStatus(200);
 })//END router.put
 
 module.exports = router;

@@ -30,6 +30,21 @@ myApp.controller('GalleryController', function ($http) {
        }).then( function (response) {
             console.log('GET response:', response);
             vm.getPhotos();
-       })//END PUT
+       })//END POST
     }//END vm.favPhoto
+
+    //function to add comments
+    vm.addComment = function (photo) {
+        photo.comments.push(vm.commentIn)
+        console.log('add comment');
+        $http({
+            method: 'PUT',
+            url: '/photos',
+            data: vm.photos
+        }).then( function (response) { 
+            console.log('resp:', response);
+            vm.getPhotos();
+        })//END PUT 
+        vm.commentIn = '';
+    }//END vm.addComment
 })//END myApp.controller

@@ -14,3 +14,8 @@ span {
     text-decoration: bold;
     color: lightblue;
 }
+
+.comment {
+    float: left;
+    width: 50%
+}

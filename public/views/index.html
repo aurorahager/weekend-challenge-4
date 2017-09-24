@@ -23,7 +23,7 @@
             <!-- column 1 -->
             <div ng-repeat="photo in GC.photos" class="col-md-4">
                 <!-- div to togle click -->
-                <div id="gal1" ng-init="getDesc = false" ng-click="getDesc = !getDesc">
+                <div id="gal1" ng-init="getDesc = false"  ng-init="getComment = false" ng-init="comment = flase" ng-click="getDesc = !getDesc">
                     <!-- image hiding on div click -->
                     <img ng-src="{{photo.url}}" class="img-responsive img-thumbnail" ng-hide="getDesc">
                     <!-- description showing on div click -->
@@ -33,6 +33,15 @@
                 </div>
                 <!--end div to click-->
                 <button class="btn btn-primary btn-block" ng-click="GC.favPhoto(photo)"><span>FAVORITE</span><br>{{photo.clicks}} people liked this</button>
+                <button class="btn btn-info comment" ng-click=" comment = !comment; getComment = !getComment">Comment</button>
+                <button class="btn btn-info comment" ng-click=" getComment = !getComment">See comments</button>
+                <input ng-show="comment" type="text" ng-model="GC.commentIn">
+                <button ng-show="comment" class="btn btn-success" ng-click="GC.addComment(photo)">Add Comment</button>
+                <div  class="list-group" ng-show="getComment" ng-repeat=" comments in photo.comments">
+                    <div>{{comments}}</div>
+                    <div>{{GC.commentIn}}</div>
+                </div>
+                    <button class="btn btn-secondary btn-block" ng-show="getComment" ng-click="getComment = !getComment">Hide Comments</button>
             </div>
             <!--end column-->
         </div>
