@@ -7,6 +7,7 @@ myApp.controller('GalleryController', function ($http) {
     var vm = this;
     // global array to store photo Objects
      vm.photos = []; 
+    
     //function to get all photos 
     vm.getPhotos = function () {
         $http ({
@@ -34,9 +35,9 @@ myApp.controller('GalleryController', function ($http) {
     }//END vm.favPhoto
 
     //function to add comments
-    vm.addComment = function (photo) {
-        photo.comments.push(vm.commentIn)
-        console.log('add comment');
+    vm.addComment = function (photo) {     
+        photo.comments.push(vm.commentIn);
+        console.log(vm.photos);
         $http({
             method: 'PUT',
             url: '/photos',

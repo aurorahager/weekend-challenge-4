@@ -8,18 +8,18 @@ var photos = [{
     url: '../gallery/gal1.jpg',
     desc: 'This is a photo of my boyfriend, Caleb, and I at a wedding last summer',
     clicks: 0,
-    comments:['wow great pic!']
+    comments:[]
 }, {
     number: 2,
     url: '../gallery/gal2.jpg',
     clicks: 0,
-    desc: 'This is me and my best friend Holly in highschool',
+    desc: 'This is me and my best friend, Holly, in highschool',
     comments: []
     }, {
         number: 3,
         url: '../gallery/gal3.jpg',
         clicks: 0,
-        desc: 'This is a picture of my little sister Ellie a few years back',
+        desc: 'This is a picture of my little sister, Ellie, a few years back',
         comments: []
 }, {
     number: 4,
@@ -31,7 +31,7 @@ var photos = [{
         number: 5,
         url: '../gallery/gal5.jpg',
         clicks: 0,
-        desc: 'This is a photo of me and one of my other best friends Talia at her sorority semi-formal',
+        desc: "This is a photo of me and another best friend of mine, Talia, at her sorority's semi-formal",
         comments: []
 }, {
     number: 6,
@@ -51,8 +51,10 @@ router.post('/', function (req, res){
 
 })//END router.post
 
-router.put('/:id', function (req, res){
+router.put('/', function (req, res){
     photos = req.body;
+    console.log('photos.comment:', photos);
+    
    res.sendStatus(200);
 })//END router.put
 

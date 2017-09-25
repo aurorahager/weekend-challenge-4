@@ -5,46 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet">
+    <!-- style -->
     <link href="../vendors/bootstrap.min.css" rel="stylesheet" media="screen">
     <link rel="stylesheet" href="../styles/main.css">
+    <!-- scripts -->
     <script src="../vendors/angular.min.js"></script>
-    <!-- <script src="../vendors/angular-route.min.js"></script> -->
     <script src="../scripts/client.js"></script>
     <title>Gallery</title>
 </head>
 
 <body ng-app="myApp">
     <!-- header -->
-    <h1 class="jumbotron">Rory's Photo Gallery</h1>
+    <h1 class="container jumbotron">Rory's Photo Gallery</h1>
     <!-- gallery container -->
     <section class="container" ng-controller="GalleryController as GC" ng-init="GC.getPhotos()">
-        <!-- row one -->
-        <div  class="row">
-            <!-- column 1 -->
+        <!-- row -->
+        <div class="row">
+            <!-- column repeat through photos -->
             <div ng-repeat="photo in GC.photos" class="col-md-4">
-                <!-- div to togle click -->
-                <div id="gal1" ng-init="getDesc = false"  ng-init="getComment = false" ng-init="comment = flase" ng-click="getDesc = !getDesc">
+                <!-- div to toggle descrption on click and set varables to false to toggle buttons -->
+                <div class="gal" ng-init="getDesc = false" ng-init="comment = flase" ng-init="shComment = false" ng-click="getDesc = !getDesc">
                     <!-- image hiding on div click -->
                     <img ng-src="{{photo.url}}" class="img-responsive img-thumbnail" ng-hide="getDesc">
                     <!-- description showing on div click -->
                     <p ng-show="getDesc">
                         {{photo.desc}}
                     </p>
-                </div>
+                    </div>
                 <!--end div to click-->
-                <button class="btn btn-primary btn-block" ng-click="GC.favPhoto(photo)"><span>FAVORITE</span><br>{{photo.clicks}} people liked this</button>
-                <button class="btn btn-info comment" ng-click=" comment = !comment; getComment = !getComment">Comment</button>
-                <button class="btn btn-info comment" ng-click=" getComment = !getComment">See comments</button>
+                <!-- favorite button adds clicks to obj on client.js and shows total likes -->
+                <button class="btn btn-primary btn-block" ng-click="GC.favPhoto(photo)"><span>Favorite</span><br>{{photo.clicks}} people liked this</button>
+                <!-- button to comment. shows input field and comments -->
+                <button class="btn btn-info commentBtn" ng-click="comment = !comment">Comment</button>
+                <!-- button to see all comments -->
+                <button class="btn btn-info commentBtn" ng-click="shComment = !shComments">Show Comments</button>
+                <!-- comment input showimg on click -->
                 <input ng-show="comment" type="text" ng-model="GC.commentIn">
-                <button ng-show="comment" class="btn btn-success" ng-click="GC.addComment(photo)">Add Comment</button>
-                <div  class="list-group" ng-show="getComment" ng-repeat=" comments in photo.comments">
-                    <div>{{comments}}</div>
-                    <div>{{GC.commentIn}}</div>
-                </div>
-                    <button class="btn btn-secondary btn-block" ng-show="getComment" ng-click="getComment = !getComment">Hide Comments</button>
-            </div>
+                <!-- add comment button calls addComment function  -->
+                <button ng-show="comment" class="btn btn-success" ng-click="GC.addComment(photo); shComment = !shCommet">Add Comment</button>
+                <p class="cmnt"ng-show="shComment" >{{photo.comments}}</p>
+            <button class="btn btn-secondary btn-block" ng-show="comment" ng-click="comment = !comments">Hide Comments</button>
             <!--end column-->
+                </div>
         </div>
+        <!-- end row -->
     </section>
 </body>
 
